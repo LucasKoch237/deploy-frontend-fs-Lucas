@@ -14,7 +14,7 @@ const handleResponse = async (response) => {
 export const productsAPI = {
     getAll: async () => {
         try {
-            const response = await fetch(`${API_BASE_URL}/products`);
+            const response = await fetch(`${API_BASE_URL}/api/products/`);
             return await handleResponse(response);
         } catch (error) {
             console.error("Error en fetching de productos:", error);
@@ -23,7 +23,7 @@ export const productsAPI = {
     },
     getById: async (id) => {
         try {
-            const response = await fetch(`${API_BASE_URL}/products/${id}`);
+            const response = await fetch(`${API_BASE_URL}/api/products/${id}`);
             return await handleResponse(response);
         } catch (error) {
             console.error("Error en fetching de producto ", id, error);
@@ -32,7 +32,7 @@ export const productsAPI = {
     },
     create: async (product) => {
         try {
-            const response = await fetch(`${API_BASE_URL}/products`, {
+            const response = await fetch(`${API_BASE_URL}/api/products/`, {
                 ...defaultOptions,
                 method: "POST",
                 body: JSON.stringify(product),
@@ -48,7 +48,7 @@ export const productsAPI = {
 export const ordersAPI = {
     create: async (order) => {
         try {
-            const response = await fetch(`${API_BASE_URL}/orders`, {
+            const response = await fetch(`${API_BASE_URL}/api/orders/`, {
                 ...defaultOptions,
                 method: "POST",
                 body: JSON.stringify(order),
@@ -63,7 +63,7 @@ export const ordersAPI = {
 
 export const checkServerHealth = async () => {
     try {
-        const response = await fetch(`${API_BASE_URL}/products?_limit=1`);
+        const response = await fetch(`${API_BASE_URL}/api/products?_limit=1`);
         return response.ok;
     } catch (error) {
         console.error("La verificacion de servidor ha fallado", error);

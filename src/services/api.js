@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://deploy-backend-fs.vercel.app:3001/";
+const API_BASE_URL = "https://deploy-backend-fs.vercel.app/";
 const defaultOptions = {
     headers: {
         "Content-Type": "application/json",
